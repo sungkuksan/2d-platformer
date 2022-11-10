@@ -93,30 +93,20 @@ public class PlayerController : MonoBehaviour
             rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);   // Vector2(0, 1)
         }
 
-        //if (hasProjectile && Input.GetButtonDown("Fire1"))
-        //{
-        //    Debug.Log("발사체를 발사합니다.");
-
-        //    Vector3 playerDirection = new Vector3(transform.localScale.x, 0, 0);
-
-        //    Projectile projectile = GameObject.Instantiate<Projectile>(
-        //        projectilePrefab,
-        //        transform.position + playerDirection,
-        //        Quaternion.identity);
-
-        //    projectile.Fire(playerDirection);
-
-        //    hasProjectile = false;
-        //}
-
-        if (Input.GetButtonDown("Fire1"))
+        if (hasProjectile && Input.GetButtonDown("Fire1"))
         {
+            Debug.Log("발사체를 발사합니다.");
+
             Vector3 playerDirection = new Vector3(transform.localScale.x, 0, 0);
-            Projectile projectile = GameObject.Instantiate<Projectile>(projectilePrefab,
+
+            Projectile projectile = GameObject.Instantiate<Projectile>(
+                projectilePrefab,
                 transform.position + playerDirection,
                 Quaternion.identity);
 
             projectile.Fire(playerDirection);
+
+            hasProjectile = false;
         }
     }
 
